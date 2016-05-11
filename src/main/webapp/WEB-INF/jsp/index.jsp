@@ -5,15 +5,55 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
+        <title>Sample Calculator</title>
     </head>
 
     <body>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+    <div align="center">
+    <form method="post" action="calculator">
+    <table border="0" cellpadding="10" cellspacing="0">
+     <tr>
+     <td align="center" colspan="2"><h2>Sample Calculator</h2></td>
+     </tr>
+      <tr>
+      <td align="right">1st Number</td>
+      <td><input 
+               name="num1" 
+               type="text" size="20" >
+      </td>
+      </tr>
+      <tr>
+      <td align="right">2nd Number:</td>
+      <td><input 
+               name="num2" 
+               type="text" size="20" >
+      </td>
+      </tr>
+      <tr>
+      <td align="right">Result:</td>
+      <td><input 
+               name="result" 
+               type="text" size="5" readonly>
+      </td>
+      </tr>
+      <tr>
+       <td colspan="2"><hr></td>
+      </tr>
+      <tr>
+      <td colspan="2" align="center">
+        <input type="submit" value="Calculate">  
+        <select name="op" size="1">
+            <option SELECTED>Operation
+            <option>Add
+            <option>Subtract
+            <option>Multiply
+            <option>Divide
+        </select>
+        <br> 
+      </td>
+      </tr>
+    </table>
+    </form>
+    </div>
     </body>
 </html>

@@ -24,4 +24,12 @@
     <welcome-file-list>
         <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>calculator</servlet-name>
+        <servlet-class>com.mycompany.webcalculator.CalculatorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>calculator</servlet-name>
+        <url-pattern>/calculator</url-pattern>
+    </servlet-mapping>
 </web-app>
