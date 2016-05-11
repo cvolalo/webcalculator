@@ -7,13 +7,13 @@ package com.mycompany.webcalculator;
  */
 
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
+import java.io.*;
+import static java.lang.System.out;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.math.*;
+import java.util.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -60,7 +60,32 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //HttpSession session = request.getSession(true);
+        if(request.getParameter("op")!=null){
+            //int result;
+            //PrintWriter out = response.getWriter(); 
+            String num1 = request.getParameter("num1");
+            String num2 = request.getParameter("num2");
+            //String formres = request.getParameter("result");
+            String res=null;
+            
+            String op = request.getParameter("op");
+            if(op.equals("Add"))
+                res = Integer.toString(Integer.parseInt(num1) + Integer.parseInt(num2));
+            else if(op.equals("Subtract"))
+                res = Integer.toString(Integer.parseInt(num1) - Integer.parseInt(num2));
+            else if(op.equals("Multiply"))
+                res = Integer.toString(Integer.parseInt(num1) * Integer.parseInt(num2));
+            else if(op.equals("Divide"))
+                res = Integer.toString(Integer.parseInt(num2) / Integer.parseInt(num1));
+            
+            //out.println(res);
+            RequestDispatcher rd;  
+            request.setAttribute("result",res);
+            rd = getServletContext().getRequestDispatcher("/index.htm");
+            
+            rd.forward(request, response);
+        }
     }
 
     /**
@@ -74,7 +99,7 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        processRequest(request,response);
     }
 
     /**
