@@ -121,7 +121,7 @@ public class CalculatorServletTest {
         String result = instance.Addition(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -137,7 +137,7 @@ public class CalculatorServletTest {
         String result = instance.Subtraction(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -153,7 +153,7 @@ public class CalculatorServletTest {
         String result = instance.Multiplication(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -169,7 +169,7 @@ public class CalculatorServletTest {
         String result = instance.Division(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
