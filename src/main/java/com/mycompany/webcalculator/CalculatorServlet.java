@@ -71,13 +71,13 @@ public class CalculatorServlet extends HttpServlet {
             
             String op = request.getParameter("op");
             if(op.equals("Add"))
-                res = Integer.toString(Integer.parseInt(num1) + Integer.parseInt(num2));
+                res = Addition(num1,num2);
             else if(op.equals("Subtract"))
-                res = Integer.toString(Integer.parseInt(num1) - Integer.parseInt(num2));
+                res = Subtraction(num1,num2);
             else if(op.equals("Multiply"))
-                res = Integer.toString(Integer.parseInt(num1) * Integer.parseInt(num2));
+                res = Multiplication(num1,num2);
             else if(op.equals("Divide"))
-                res = Integer.toString(Integer.parseInt(num2) / Integer.parseInt(num1));
+                res = Division(num1,num2);
             
             //out.println(res);
             RequestDispatcher rd;  
@@ -112,4 +112,31 @@ public class CalculatorServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public String Addition(String num1, String num2)
+    {
+        String sum;
+        sum = Double.toString(Double.parseDouble(num1) + Double.parseDouble(num2));
+        return sum;
+    }
+    
+    public String Subtraction(String num1, String num2)
+    {
+        String diff;
+        diff = Double.toString(Double.parseDouble(num1) - Double.parseDouble(num2));
+        return diff;
+    }
+    
+    public String Multiplication(String num1, String num2)
+    {
+        String prod;
+        prod = Double.toString(Double.parseDouble(num1) * Double.parseDouble(num2));
+        return prod;
+    }
+    
+    public String Division(String num1, String num2)
+    {
+        String quo;
+        quo = Double.toString(Double.parseDouble(num1) / Double.parseDouble(num2));
+        return quo;
+    }
 }
