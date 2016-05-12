@@ -117,7 +117,7 @@ public class CalculatorServletTest {
         String num1 = "3";
         String num2 = "2";
         CalculatorServlet instance = new CalculatorServlet();
-        String expResult = "5";
+        String expResult = "5.0";
         String result = instance.Addition(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -133,7 +133,7 @@ public class CalculatorServletTest {
         String num1 = "3";
         String num2 = "2";
         CalculatorServlet instance = new CalculatorServlet();
-        String expResult = "1";
+        String expResult = "1.0";
         String result = instance.Subtraction(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -149,7 +149,7 @@ public class CalculatorServletTest {
         String num1 = "3";
         String num2 = "2";
         CalculatorServlet instance = new CalculatorServlet();
-        String expResult = "6";
+        String expResult = "6.0";
         String result = instance.Multiplication(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
