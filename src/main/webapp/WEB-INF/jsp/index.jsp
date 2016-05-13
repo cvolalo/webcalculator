@@ -55,7 +55,7 @@
       </tr>
       <tr>
             <td colspan="2" align="center">
-                DevOps!
+                Change!
             </td>
       </tr>
     </table>
