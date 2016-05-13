@@ -5,6 +5,7 @@
  */
 package com.mycompany.webcalculator;
 
+import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,28 +21,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class OperationsSeleniumTest {
     
-    @Test
+    /*@Test
     public void AdditionSeleniumtest() throws Exception {
 
+        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+        
         WebDriver driver = new FirefoxDriver();
-
+        
+        
         driver.get("http://localhost:8085/WebCalculator/index.htm");
+        
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         String expectedResult = "5";
 
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().contains("NetBeans");
-            }
-        });
-
         driver.findElement(By.name("num1")).sendKeys("3");
+        Thread.sleep(2000);
+        
         driver.findElement(By.name("num2")).sendKeys("2");
+        Thread.sleep(2000);
         
         Select operationSelect = new Select(driver.findElement(By.name("op")));
         
         operationSelect.selectByValue("Add");
+        Thread.sleep(2000);
         
         driver.findElement(By.name("submit")).submit();
         
@@ -53,5 +56,5 @@ public class OperationsSeleniumTest {
         //Close the browser
         //driver.quit();
     }
-    
+    */
 }
