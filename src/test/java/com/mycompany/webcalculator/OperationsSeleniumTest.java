@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class OperationsSeleniumTest {
     
-    /*@Test
+    @Test
     public void AdditionSeleniumtest() throws Exception {
 
         System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
@@ -31,7 +31,7 @@ public class OperationsSeleniumTest {
         
         driver.get("http://localhost:8085/WebCalculator/index.htm");
         
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         String expectedResult = "5";
 
@@ -56,5 +56,4 @@ public class OperationsSeleniumTest {
         //Close the browser
         //driver.quit();
     }
-    */
 }
