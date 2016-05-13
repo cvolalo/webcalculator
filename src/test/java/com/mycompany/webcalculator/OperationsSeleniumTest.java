@@ -28,32 +28,32 @@ public class OperationsSeleniumTest {
         
         WebDriver driver = new FirefoxDriver();
         
-        
         driver.get("http://localhost:8085/WebCalculator/index.htm");
         
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
-        String expectedResult = "5";
+        String expectedResult = "5.0";
 
         driver.findElement(By.name("num1")).sendKeys("3");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         
         driver.findElement(By.name("num2")).sendKeys("2");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         
         Select operationSelect = new Select(driver.findElement(By.name("op")));
         
-        operationSelect.selectByValue("Add");
-        Thread.sleep(2000);
+        operationSelect.selectByVisibleText("Add");
+        Thread.sleep(1000);
         
-        driver.findElement(By.name("submit")).submit();
+        driver.findElement(By.name("submit")).submit(); 
+        Thread.sleep(1000);
         
         String actualResult;
-        actualResult = driver.findElement(By.name("result")).toString();
+        actualResult = driver.findElement(By.name("result")).getAttribute("value");
         
-        assertEquals(actualResult,expectedResult);
-        
+        assertEquals(expectedResult,actualResult);
+        Thread.sleep(1000);
         //Close the browser
-        //driver.quit();
+        driver.quit();
     }
 }
