@@ -5,32 +5,168 @@
  */
 package com.mycompany.webcalculator;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-/**
- *
- * @author john.arcy.r.teodoro
- */
+import javax.validation.constraints.AssertTrue;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+import org.junit.After;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+
+
 public class OperationsSeleniumTest {
+	private static WebDriver augmentedDriver;
+	static ScreenShot screenshot = new ScreenShot();
+	
+	
+	String imageLocation = "C:\\Users\\christine.m.v.olalo\\Documents\\test\\";
+	
+	/*public void takeScreenShot(String caseName) {
+		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
+		String path = imageLocation + caseName.replace(" ", "_") + ".jpeg";
+		String ssPath = imageLocation;
+		try {
+			File ssDir = new File(ssPath);
+			if (!ssDir.exists())
+				ssDir.mkdir();
+			File dir = new File(path);
+			if (!dir.exists()) {
+				System.out.println("The location " + path + " does not exist.");
+				dir.mkdir();
+				System.out.println("A directory " + path + " is created.");
+			}
+
+			File screenshot;
+
+			screenshot = ((org.openqa.selenium.TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
+
+			File screenshotFile = new File(MessageFormat.format("{0}/{1}-{2}",path, datePrefix, caseName.replace(" ", "_") + ".png"));
+
+			
+			FileOutputStream outputStream = new FileOutputStream(screenshotFile);
+			try {
+				//outputStream.write(screenshot);
+				System.out.println("Screen shot "+ screenshotFile.toString().substring(path.length() + 1) + " saved in "+ path);
+			} finally {
+				outputStream.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
+
+	public static class ScreenShot {
+		
+		public String Capture(WebDriver driver, String imageLocation) {
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			File scrFile = ((org.openqa.selenium.TakesScreenshot) driver)
+					.getScreenshotAs(OutputType.FILE);
+			// Now you can do whatever you need to do with it, for example copy
+			// somewhere
+			imageLocation = imageLocation + scrFile.getName();// goes to the
+			// path and
+			// automatically
+			// gives name
+			try {
+				// copies the screenshot file to the given path.
+				FileUtils.copyFile(scrFile, new File(imageLocation));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				// e.printStackTrace();
+			}
+			return scrFile.getName().toString();
+		}
+	}
+	
+	public void login(WebDriver driver, String siteURL, String username, String password) {
+		
+    	
+		driver.get(siteURL);
+		System.out.println(siteURL);
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.id("userid")));
+		System.out.println("Loading URL..");
+		
+		//extent.log(LogStatus.INFO, "Images", "Image:", imageMap + imageName);
+		// takeScreenShot(caseName);
+		screenshot.Capture(driver, imageLocation);
+		
+		driver.findElement(By.name("em")).clear();
+		System.out.println("Waiting for User Id...");
+		driver.findElement(By.name("em")).sendKeys(username);
+		System.out.println("User Id " + username + " entered.");
+		screenshot.Capture(driver, imageLocation);
+		
+		//takeScreenShot("test 2");
+		driver.findElement(By.name("pw")).clear();
+		System.out.println("Waiting for Password...");
+		driver.findElement(By.name("pw")).sendKeys(password);
+		System.out.println("Password ******* entered.");
+		screenshot.Capture(driver, imageLocation);
+		
+		//driver.findElement(By.xpath("//button[text()='Submit']")).click();
+		driver.findElement(By.name("Login")).click();
+		System.out.println("Logging in...");
+		screenshot.Capture(driver, imageLocation);
+		
+		
+		assertTrue(driver.getPageSource().contains("Invalid login. Please try again"));
+		
+		
+		
+    }
+	
+	public void dispose(WebDriver driver) {
+		driver.close();
+		driver.quit();
+	
+	}
+	
+	
     
     @Test
     public void AdditionSeleniumtest() throws Exception {
 
-        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+        //System.setProperty("webdriver.firefox.bin", "C:\\Users\\katrina.h.quililan\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+    	DesiredCapabilities capability = DesiredCapabilities.firefox();
+    	
+    	WebDriver driver = new RemoteWebDriver(new URL("http://juan_cio:cio_1234@selenium.52.54.45.25.xip.io///wd/hub"), capability);
+        //WebDriver driver = new FirefoxDriver();
+    	
+        //driver.get("http://www.google.com");
         
-        WebDriver driver = new FirefoxDriver();
         
-        driver.get("http://localhost:8085/WebCalculator/index.htm");
+        login(driver, "https://www.tests.com/login", "katrinablanca", "sticker");
         
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dispose(driver);
+    }
+        
+        
+    		
+    		// Screenshot
+    		
+
+    		
+
+    	//WebDriver driver = new FirefoxDriver();
+    	
+        
+        /*driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         String expectedResult = "5.0";
 
@@ -53,7 +189,11 @@ public class OperationsSeleniumTest {
         
         assertEquals(expectedResult,actualResult);
         Thread.sleep(1000);
+		
+		*/
+		
+		//driver.findElement
         //Close the browser
-        driver.quit();
-    }
+        
+    
 }
