@@ -34,7 +34,7 @@ public class OperationsSeleniumTest {
 	static ScreenShot screenshot = new ScreenShot();
 	//String imageLocation = "C:/Users/christine.m.v.olalo//Documents\CIOTest\WebCalculator";
 	
-	String imageLocation = "target/screenshots";
+	String imageLocation = "workspace/target/screenshots";
 	
 	/*public void takeScreenShot(String caseName) {
 		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
