@@ -33,9 +33,9 @@ public class OperationsSeleniumTest {
 	private static WebDriver augmentedDriver;
 	static ScreenShot screenshot = new ScreenShot();
 	//private String screenShotPath = "target/screenshots"
-	//String imageLocation = "C:/Users/christine.m.v.olalo//Documents\CIOTest\WebCalculator";
+	String imageLocation = "C:/Users/christine.m.v.olalo/DocumentsCIOTest/WebCalculator";
 	
-	String imageLocation = "/var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target/screenshots/";
+	//String imageLocation = "/var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target/screenshots/";
 	
 	/*public void takeScreenShot(String caseName) {
 		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
@@ -182,8 +182,9 @@ public class OperationsSeleniumTest {
 
         //System.setProperty("webdriver.firefox.bin", "C:\\Users\\katrina.h.quililan\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
     	DesiredCapabilities capability = DesiredCapabilities.firefox();
-    	
-    	WebDriver driver = new RemoteWebDriver(new URL("http://cioadmin:cio_1234@selenium.52.70.111.102.xip.io///wd/hub"), capability);
+    	//WebDriver driver = new RemoteWebDriver(new URL("http://cioadmin:cio_1234@selenium.52.54.45.25.xip.io///wd/hub"), capability);
+
+    	WebDriver driver = new RemoteWebDriver(new URL("http://cioadmin:initial_1234@selenium.52.70.111.102.xip.io///wd/hub"), capability);
         //WebDriver driver = new FirefoxDriver();
     	
         //driver.get("http://www.google.com");
