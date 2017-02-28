@@ -86,6 +86,7 @@ public class OperationsSeleniumTest {
 			try {
 				// copies the screenshot file to the given path.
 				FileUtils.copyFile(scrFile, new File(imageLocation));
+				System.out.print("Pumasok na");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				// e.printStackTrace();
