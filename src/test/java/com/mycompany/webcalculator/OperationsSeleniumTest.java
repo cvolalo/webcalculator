@@ -34,7 +34,7 @@ public class OperationsSeleniumTest {
 	static ScreenShot screenshot = new ScreenShot();
 	
 	
-	String imageLocation = "/var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target";
+	String imageLocation = "/home/DIR/katrina.h.quililan/screenshots";
 	
 	/*public void takeScreenShot(String caseName) {
 		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
@@ -145,7 +145,7 @@ public class OperationsSeleniumTest {
         //System.setProperty("webdriver.firefox.bin", "C:\\Users\\katrina.h.quililan\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
     	DesiredCapabilities capability = DesiredCapabilities.firefox();
     	
-    	WebDriver driver = new RemoteWebDriver(new URL("http://juan_cio:cio_1234@selenium.52.54.45.25.xip.io///wd/hub"), capability);
+    	WebDriver driver = new RemoteWebDriver(new URL("http://cioadmin:cio_1234@selenium.52.70.111.102.xip.io///wd/hub"), capability);
         //WebDriver driver = new FirefoxDriver();
     	
         //driver.get("http://www.google.com");
