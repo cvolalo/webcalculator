@@ -32,9 +32,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class OperationsSeleniumTest {
 	private static WebDriver augmentedDriver;
 	static ScreenShot screenshot = new ScreenShot();
+	//private String screenShotPath = "target/screenshots"
 	//String imageLocation = "C:/Users/christine.m.v.olalo//Documents\CIOTest\WebCalculator";
 	
-	String imageLocation = "/var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target/screenshots";
+	String imageLocation = "/var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target/screenshots/";
 	
 	/*public void takeScreenShot(String caseName) {
 		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
@@ -70,6 +71,41 @@ public class OperationsSeleniumTest {
 			e.printStackTrace();
 		}
 	}*/
+	
+	/*public void takeScreenShot(String caseName) {
+        String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
+        String path = workspace_path + screenShotPath + caseName.replace(" ", "_") + "";
+        String ssPath = workspace_path + screenShotPath;
+        try {
+                        File ssDir = new File(ssPath);
+                        if (!ssDir.exists())
+                                        ssDir.mkdir();
+                        File dir = new File(path);
+                        if (!dir.exists()) {
+                                        System.out.println("The location " + path + " does not exist.");
+                                        dir.mkdir();
+                                        System.out.println("A directory " + path + " is created.");
+                        }
+
+                        byte[] screenshot;
+
+                        screenshot = ((org.openqa.selenium.TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.BYTES);
+
+                        File screenshotFile = new File(MessageFormat.format("{0}/{1}-{2}",path, datePrefix, caseName.replace(" ", "_") + ".png"));
+
+                        FileOutputStream outputStream = new FileOutputStream(screenshotFile);
+                        try {
+                                        outputStream.write(screenshot);
+                                        System.out.println("Screen shot "+ screenshotFile.toString().substring(path.length() + 1) + " saved in "+ path);
+                        } finally {
+                                        outputStream.close();
+                        }
+
+        } catch (Exception e) {
+                        e.printStackTrace();
+        }
+}*/
+
 
 	public static class ScreenShot {
 		
