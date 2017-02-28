@@ -34,7 +34,7 @@ public class OperationsSeleniumTest {
 	static ScreenShot screenshot = new ScreenShot();
 	//String imageLocation = "C:/Users/christine.m.v.olalo//Documents\CIOTest\WebCalculator";
 	
-	String imageLocation = "workspace/target/screenshots";
+	String imageLocation = "var/jenkins_home/jobs/cio-admin/jobs/Project_Management/jobs/Test_Selenium/workspace/target/screenshots";
 	
 	/*public void takeScreenShot(String caseName) {
 		String datePrefix = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
@@ -104,6 +104,7 @@ public class OperationsSeleniumTest {
 		
 		//extent.log(LogStatus.INFO, "Images", "Image:", imageMap + imageName);
 		// takeScreenShot(caseName);
+		
 		screenshot.Capture(driver, imageLocation);
 		
 		driver.findElement(By.name("em")).clear();
